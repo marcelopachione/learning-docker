@@ -1,0 +1,52 @@
+# version: '3'
+
+# services:
+#   spark-master:
+#     image: bitnami/spark:latest
+#     container_name: spark-master
+#     ports:
+#       - "8080:8080"   # UI do master
+#       - "7077:7077"   # porta RPC
+#     environment:
+#       - SPARK_MODE=master
+#       # Garante que Ivy/Spark tenham um HOME absoluto válido
+#       - HOME=/opt/bitnami/spark
+#     volumes:
+#       # (opcional) monta o diretório com seus jobs/scripts
+#       - ./jobs:/opt/bitnami/spark/jobs
+    
+#   spark-worker:
+#     image: bitnami/spark:latest
+#     container_name: spark-worker
+#     ports:
+#       - "8081:8081"   # UI do worker
+#     environment:
+#       - SPARK_MODE=worker
+#       - SPARK_MASTER_URL=spark://spark-master:7077
+#       - HOME=/opt/bitnami/spark
+#       # (opcional) recursos do worker
+#       # - SPARK_WORKER_CORES=2
+#       # - SPARK_WORKER_MEMORY=2G
+#     volumes:
+#       - ./jobs:/opt/bitnami/spark/jobs
+#     depends_on:
+#       - spark-master
+
+version: '3'
+
+services:
+  spark-master:
+    image: bitnami/spark:latest
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    environment:
+      - SPARK_MODE=master
+
+  spark-worker:
+    image: bitnami/spark:latest
+    ports:
+      - "8081:8081"
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
