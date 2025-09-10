@@ -1,9 +1,5 @@
-** Faz o build da imagem **
+## Faz o build da imagem
+    docker build -t iss-tracker .
 
-
-docker build -t iss-tracker .
-
-** --rm → faz com que o container seja removido automaticamente assim que ele parar de rodar (não fica listado em docker ps -a depois). **
-
-
-docker run --rm iss-tracker
+## --rm → Execucao unica, container é removido apos execucao  (não fica listado em docker ps -a)
+    docker run --rm iss-tracker
