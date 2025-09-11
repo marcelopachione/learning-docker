@@ -1,0 +1,16 @@
+[
+    {
+        "search_date": "2025-09-11",
+        "prevision_date": "2025-09-10",
+        "index": "low",
+        "actual": 62,
+        "forecast": 67
+    },
+    {
+        "search_date": "2025-09-11",
+        "prevision_date": "2025-09-11",
+        "index": "low",
+        "actual": 54,
+        "forecast": 57
+    }
+]
